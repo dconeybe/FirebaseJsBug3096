@@ -7,6 +7,7 @@ App to reproduce https://github.com/firebase/firebase-js-sdk/issues/3096
 1. Open a shell in the cloned directory.
 1. `npm install -g jest`
 1. `npm install`
+1. `firebase emulators:start --only firestore`
 1. `jest test.js`
 
 The test will fail with the following error and hang:
@@ -25,6 +26,7 @@ To see the expected behavior, do the following:
 1. `rm package-lock.json`
 1. `sed -i .bak 's/19.4/15.0/' package.json`
 1. `npm install`
+1. `firebase emulators:start --only firestore`
 1. `jest test.js`
 
 The test will still fail, but with an appropriate message:
