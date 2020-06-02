@@ -34,3 +34,25 @@ The test will still fail, but with an appropriate message:
 ```
 Expected request to fail, but it succeeded.
 ```
+
+## Workaround
+
+A workaround is documented in https://github.com/facebook/jest/issues/7780 and
+it worked for me. Below are the instructions to apply the workaround. To see
+the workaround, checkout the `workaround` branch.
+
+1. Follow the instructions above to reproduce the issue.
+1. `npm i jest-environment-node`
+1. Create a file named `__test-utils__/custom-jest-environment.js` and set its
+   contents to
+   https://github.com/dconeybe/FirebaseJsBug3096/blob/workaround/__test-utils__/custom-jest-environment.js.
+1. Add the following to `package.json`:
+   ```
+   "jest": {
+     "testEnvironment": "./__test-utils__/custom-jest-environment.js"
+   }
+   ```
+1. `jest test.js`
+
+The test will still fail, but with a failure not related to an internal error,
+which demonstrates that the bug was worked around successfully.
