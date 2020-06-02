@@ -9,6 +9,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@firebase/testing": "^0.19.4"
+    "@firebase/testing": "^0.19.4",
+    "jest-environment-node": "^26.0.1"
+  },
+  "jest": {
+    "testEnvironment": "./__test-utils__/custom-jest-environment.js"
   }
 }
